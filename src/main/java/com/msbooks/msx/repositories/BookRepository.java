@@ -12,7 +12,7 @@ public interface BookRepository extends CrudRepository<Book, Long>{
     Optional<Book> findById(Long id);
     List<Book> findAll();
     
-    List<Book> findByBookName(String bookName);
+    // List<Book> findByBookName(String bookName);
     
-    Book findByName(String bookName);
+    // Book findByName(String bookName);
 }
