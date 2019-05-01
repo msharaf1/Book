@@ -37,8 +37,15 @@ public class HomeController {
         Optional<Book> findById = bookServ.findById(id);
         model.addAttribute("bId", findById);
         
-        return "index";
+        return "show";
     }
 
+    // @GetMapping("/books/{id}")
+    // public String shoObj(@PathVariable("id") Long id, Model model){
+    //     List<Book> books = bookServ.findById(id);
+    //     model.addAttribute("bId", findById);
+        
+    //     return "show";
+    // }
 
 }
