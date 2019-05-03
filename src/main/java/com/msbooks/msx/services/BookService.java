@@ -3,6 +3,8 @@ package com.msbooks.msx.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import com.msbooks.msx.models.Book;
 import com.msbooks.msx.repositories.BookRepository;
 
@@ -30,4 +32,8 @@ public class BookService {
     // public Book findBook(Book book){
     //     return bookRepo.findBook(book);
     // }
+
+	public Book createBook( Book book) {
+		return bookRepo.save(book);
+	}
 }

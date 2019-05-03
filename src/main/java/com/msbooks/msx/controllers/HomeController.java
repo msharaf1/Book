@@ -4,14 +4,19 @@ import java.lang.StackWalker.Option;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import com.msbooks.msx.models.Book;
 import com.msbooks.msx.repositories.BookRepository;
 import com.msbooks.msx.services.BookService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HomeController {
@@ -48,4 +53,25 @@ public class HomeController {
     //     return "show";
     // }
 
+    @GetMapping("/books/new")
+    public String showAllBook(Model model){
+        List<Book> books = bookServ.allBooks();
+        System.out.println(books.size());
+        model.addAttribute("books", books);
+        
+        return "index";
+    }
+
+    @PostMapping("/books/new")
+    public String createBook(@Valid @ModelAttribute("books") Book book, BindingResult result){
+        if(result.hasErrors()){
+            return "redirect:/books";
+        }else {
+            Book newBook = bookServ.createBook(book);
+            
+            return "redirect:/books";
+        }
+        
+        
+    }
 }
