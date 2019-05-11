@@ -39,7 +39,7 @@ public class HomeController {
 
     @GetMapping("/books/{id}")
     public String showById(@PathVariable("id") Long id, Model model){
-        Optional<Book> findById = bookServ.findById(id);
+        Book findById = bookServ.findBookById(id);
         model.addAttribute("bId", findById);
         
         return "show";

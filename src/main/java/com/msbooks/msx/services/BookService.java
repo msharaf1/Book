@@ -26,14 +26,24 @@ public class BookService {
         return books;
     }
 
-    public Optional<Book> findById(Long id){
-        return bookRepo.findById(id);
+    public Book findBookById(Long id){
+        Optional<Book> optionalBook = bookRepo.findById(id);
+        if(optionalBook.isPresent()){
+            return optionalBook.get();
+        } else {
+            return null;
+        }
     }
-    // public Book findBook(Book book){
-    //     return bookRepo.findBook(book);
+
+    // public Optional<Book> findById(Long id){
+    //     return bookRepo.findById(id);
     // }
+
 
 	public Book createBook( Book book) {
 		return bookRepo.save(book);
-	}
+    }
+    public void deleteBook(Long id){
+        bookRepo.deleteById(id);
+    }
 }
