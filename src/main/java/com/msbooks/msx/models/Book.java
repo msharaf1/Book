@@ -50,6 +50,11 @@ public class Book{
     // @OnDelete(action = OnDeleteAction.CASCADE)
     private Author author;
 
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "authorId", nullable = false)
+    // @OnDelete(action = OnDeleteAction.CASCADE)
+    // private Author author;
+
 
 
 

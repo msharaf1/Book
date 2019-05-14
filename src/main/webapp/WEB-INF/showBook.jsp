@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!DOCType html>
@@ -24,17 +27,17 @@
             </tr>
         </thead>
         <tbody>
-        <%-- <c:forEach items="${books}" var="book"> --%>
-            <%-- <tr>
-              <td> ${book.bookName} </td>
-              <td> ${book.publisher} </td>
-              <td> ${book.location} </td>
-            </tr> --%>
-        <%-- </c:forEach> --%>
+        <%-- <c:forEach items="${books}" var="book">  --%>
+            <tr>
+              <td> <c:out value="${bookDetail.bookName}" />  </td>
+              <td> <c:out value="${bookDetail.publisher}" />  </td>
+              <td> <c:out value="${bookDetail.location}" /> </td>
+            </tr> 
+      <%-- </c:forEach> --%>
         </tbody>
     </table>
   </table>
-  <%-- <c:out path="${bId}" />  --%>
+ 
   <a href="/books"><button type="button"> Home </button> </a>
     
     
