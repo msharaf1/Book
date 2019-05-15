@@ -50,6 +50,11 @@ public class Book{
     // @OnDelete(action = OnDeleteAction.CASCADE)
     private Author author;
 
+
+    public void setAId(Long id){
+        this.author.setId (id);
+    }
+
     // @ManyToOne(fetch = FetchType.LAZY)
     // @JoinColumn(name = "authorId", nullable = false)
     // @OnDelete(action = OnDeleteAction.CASCADE)
@@ -78,6 +83,21 @@ public class Book{
     
     //Empty constructor
     public Book(){};
+
+
+
+    // public Book(Long id, String bookName, String publisher, String location, Author author, Date createdAt, Date updatedAt) {
+    //     this.id = id;
+    //     this.bookName = bookName;
+    //     this.publisher = publisher;
+    //     this.location = location;
+    //     this.author = getAuthor();
+    // }
+
+
+
+
+
 
     // public Book(Long id, String bookName, String publisher, String location,  Date createdAt, Date updatedAt) {
     //     this.id = id;
@@ -142,13 +162,12 @@ public class Book{
         this.updatedAt = updatedAt;
     }
 
-
-    public Author getAuthor() {
-        return this.author;
-    }
-
     public void setAuthor(Author author) {
         this.author = author;
     }
+    public Author getAuthor(){
+        return this.author;
+    }
+
 
 }

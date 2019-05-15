@@ -49,16 +49,16 @@ public class Author {
     
     // relationship One to many
     @OneToMany(mappedBy="author",   fetch = FetchType.LAZY)
-    // private List<Book> books;
-    private Set<Book> books = new HashSet<>();
+    private List<Book> books;
+    // private Set<Book> books = new HashSet<>();
 
-    public Set<Book> getBooks() {
-        return this.books;
-    }
+    // public Set<Book> getBooks() {
+    //     return this.books;
+    // }
 
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
+    // public void setBooks(Set<Book> books) {
+    //     this.books = books;
+    // }
 
     //= new ArrayList<BookModels>();
     
@@ -83,13 +83,13 @@ public class Author {
     
     public Author() {} //empty constructor
     
-    // public List<Book> getBooks() {
-    //     return this.books;
-    // }
+    public List<Book> getBooks() {
+        return this.books;
+    }
     
-    // public void setBooks(List<Book> books) {
-    //     this.books = books;
-    // }
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
     
 
     public Long getId() {
